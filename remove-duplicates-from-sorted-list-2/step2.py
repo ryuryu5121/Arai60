@@ -15,3 +15,4 @@ class Solution:
                 node = node.next
                 continue
         return dummy.next
+    
