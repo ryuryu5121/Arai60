@@ -15,4 +15,22 @@ class Solution:
                 node = node.next
                 continue
         return dummy.next
-    
+
+
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        dummy_head = ListNode(None, head)
+        node = dummy_head
+
+        while node.next and node.next.next:
+            current_node = node.next
+            next_node = current_node.next
+            if current_node.val != next_node.val:
+                node = node.next
+                continue
+            
+            while next_node and current_node.val == next_node.val:
+                next_node = next_node.next
+            node.next = next_node
+        
+        return dummy_head.next
