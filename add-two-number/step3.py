@@ -23,3 +23,60 @@ class Solution:
             result.next = ListNode(carry_digit)
         
         return dummy_node
+
+
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        def get_val(list_node):
+            if list_node:
+                return list_node.val
+            return 0
+                
+            
+        dummy_node = ListNode()
+        result = dummy_node
+        carry_digit = 0
+
+        while l1 or l2:
+            l1_val = get_val(l1)
+            l2_val = get_val(l2)
+            sum_digit = l1_val + l2_val + carry_digit
+            result_val = sum_digit % 10
+            carry_digit = result_val // 10
+
+            if l1:
+                l1 = l1.next
+            if l2:
+                l2 = l2.next
+            if l1 or l2:
+                result.next = ListNode()
+                result = result.next
+        
+        if carry_digit > 0:
+            result.next = ListNode(carry_digit)
+        
+        return dummy_node
+    
+def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+    def get_val(node_list):
+        if node_list is not None:
+            return node_list.val
+        return 0
+    
+    dummy = ListNode(0, None)
+    result = dummy
+    carry = 0
+
+    while l1 is not None or l2 is not None or carry > 0:
+        sum_digit = get_val(l1) + get_val(l2) + carry
+        carry = sum_digit // 10
+        digit = sum_digit % 10
+        result.next = ListNode(digit)
+        result = result.next
+
+        if l1 is not None:
+            l1 = l1.next
+        if l2 is not None:
+            l2 = l2.next
+        
+    return result.next
+     

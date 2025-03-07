@@ -13,3 +13,7 @@ step2
   - result.next = ListNode(sum_digit % 10)
   - resultのnextに結果を代入するのは違和感があるというコメント
   - result に値を格納していって、whileの最後で result = result.next していくのが自然らしい
+- 繰り上がりの行をListNode(1, None), 繰り上がりが無い行をListNode(0, None)で場合分けする方法もあった
+- 番兵は作らない
+    - 最初のノードだけに対応するような処理を入れずに、dummyを作成して入れ替えることで対応
+- 丁寧にやるならl1,l2の大きさ判定やnextが存在しない場合にnodeの最後のNoneを入れるなどを行うべきだった
